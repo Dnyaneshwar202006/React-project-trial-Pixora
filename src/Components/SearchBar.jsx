@@ -1,7 +1,7 @@
-const SearchBar = ({ query, setQuery }) => {
+const SearchBar = ({ query, setQuery, onSearch }) => {
     const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log(query);
+        onSearch(query);
     }
   return (
     <div>

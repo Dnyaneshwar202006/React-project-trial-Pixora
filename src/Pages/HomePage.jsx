@@ -6,6 +6,7 @@ import ResultGrid from "../Components/ResultGrid";
 
 const HomePage = () => {
   const [query, setQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const [activeState, setActiveState] = useState("images");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -18,6 +19,7 @@ const HomePage = () => {
     const searchMedia = async () => {
       setLoading(true);
       setError(null);
+      setResults([]);
       try {
         let data;
         if (activeState === "images") {
@@ -39,7 +41,7 @@ const HomePage = () => {
     };
 
     searchMedia();
-  }, [query, activeState]);
+  }, [searchQuery, activeState]);
   return (
     <main className="home-page">
       <section className="hero-section">
@@ -55,10 +57,25 @@ const HomePage = () => {
           one place.
         </p>
 
-        <SearchBar query={query} setQuery={setQuery} />
+        <SearchBar
+          query={query}
+          setQuery={setQuery}
+          onSearch={setSearchQuery}
+        />
         <Tabs activeState={activeState} setActiveState={setActiveState} />
       </section>
-      {results.length > 0 && <ResultGrid results={results} />}
+      {loading && <p className="status-message">Searching...</p>}
+      {error && <p className="error-message">{error}</p>}
+      {!loading && !error && results.length > 0 && (
+        <>
+          <div className="results-header">
+            <h2>Results for "{searchQuery}"</h2>
+
+            <span>{results.length} results</span>
+          </div>
+          <ResultGrid results={results} />
+        </>
+      )}
     </main>
   );
 };
