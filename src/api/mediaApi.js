@@ -1,4 +1,5 @@
 import axios from "axios";
+import { normalizePhotos, normalizeVideos, normalizeGIFs, } from "./normalizers";
 
 const UNSPLASH_KEY = import.meta.env.VITE_UNSPLASH_KEY;
 const PEXELS_KEY = import.meta.env.VITE_PEXELS_KEY;
@@ -19,7 +20,7 @@ export async function fetchPhotos(query, page = 1, per_page = 20) {
     }
   );
 
-  return res.data;
+  return normalizePhotos(res.data);
 }
 
 export async function fetchVideos(query, per_page = 15) {
@@ -36,7 +37,7 @@ export async function fetchVideos(query, per_page = 15) {
     }
   );
 
-  return res.data;
+  return normalizeVideos(res.data);
 }
 
 export async function fetchGIF(query, per_page = 15) {
@@ -51,5 +52,5 @@ export async function fetchGIF(query, per_page = 15) {
     }
   );
 
-  return res.data;
+  return normalizeGIFs(res.data);
 }
