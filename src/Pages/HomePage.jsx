@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import SearchBar from "../Components/SearchBar";
 import Tabs from "../Components/Tabs";
 import { fetchGIF, fetchVideos, fetchPhotos } from "../api/mediaApi";
+import ResultGrid from "../Components/ResultGrid";
 
 const HomePage = () => {
   const [query, setQuery] = useState("");
@@ -57,6 +58,7 @@ const HomePage = () => {
         <SearchBar query={query} setQuery={setQuery} />
         <Tabs activeState={activeState} setActiveState={setActiveState} />
       </section>
+      {results.length > 0 && <ResultGrid results={results} />}
     </main>
   );
 };
