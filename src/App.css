@@ -217,3 +217,223 @@ main {
     gap: 4px;
   }
 }
+/* ================================
+   Home Page
+================================ */
+
+.home-page {
+  min-height: calc(100vh - 76px);
+
+  display: flex;
+  justify-content: center;
+}
+
+.hero-section {
+  width: min(900px, 100%);
+
+  padding-top: 90px;
+
+  text-align: center;
+}
+
+
+/* ================================
+   Hero Text
+================================ */
+
+.hero-eyebrow {
+  margin-bottom: 18px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  color: rgba(244, 244, 244, 0.5);
+}
+
+.hero-title {
+  margin: 0;
+
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 0.95;
+  letter-spacing: -3px;
+
+  font-weight: 700;
+}
+
+.hero-title span {
+  display: block;
+
+  color: rgba(244, 244, 244, 0.45);
+}
+
+.hero-description {
+  max-width: 600px;
+
+  margin: 28px auto 42px;
+
+  color: rgba(244, 244, 244, 0.6);
+
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+
+/* ================================
+   Search
+================================ */
+
+.search-wrapper {
+  width: 100%;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  padding: 7px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.18);
+
+  backdrop-filter: blur(10px);
+}
+
+.search-input {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 16px 18px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: rgb(244, 244, 244);
+
+  font-size: 16px;
+}
+
+.search-input::placeholder {
+  color: rgba(244, 244, 244, 0.4);
+}
+
+.search-button {
+  padding: 13px 22px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: rgb(244, 244, 244);
+  color: rgb(7, 35, 67);
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.search-button:hover {
+  opacity: 0.9;
+
+  transform: translateY(-1px);
+}
+
+.search-button:active {
+  transform: scale(0.97);
+}
+
+
+/* ================================
+   Search Responsive
+================================ */
+
+@media (max-width: 600px) {
+  .hero-section {
+    padding-top: 60px;
+  }
+
+  .hero-title {
+    letter-spacing: -2px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .search-form {
+    padding: 5px;
+  }
+
+  .search-input {
+    padding: 13px 12px;
+
+    font-size: 14px;
+  }
+
+  .search-button {
+    padding: 12px 15px;
+  }
+}
+/* ================================
+   Tabs
+================================ */
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+
+  margin-top: 24px;
+}
+
+.tab {
+  padding: 9px 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  color: rgba(244, 244, 244, 0.55);
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.tab:hover {
+  background: rgba(255, 255, 255, 0.1);
+
+  color: rgba(244, 244, 244, 0.9);
+}
+
+.tab:active {
+  transform: scale(0.97);
+}
+
+.tab.active {
+  background: rgb(244, 244, 244);
+  color: rgb(7, 35, 67);
+}
