@@ -3,8 +3,9 @@ import SearchBar from "../Components/SearchBar";
 import Tabs from "../Components/Tabs";
 import { fetchGIF, fetchVideos, fetchPhotos } from "../api/mediaApi";
 import ResultGrid from "../Components/ResultGrid";
+import EmptyState from "../Components/EmptyState";
 
-const HomePage = () => {
+const HomePage = ({ savedItems, setSavedItems }) => {
   const [query, setQuery] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [activeState, setActiveState] = useState("images");
@@ -64,6 +65,12 @@ const HomePage = () => {
         />
         <Tabs activeState={activeState} setActiveState={setActiveState} />
       </section>
+      {!searchQuery && !loading && (
+        <EmptyState message="Search for your next visual" />
+      )}
+      {searchQuery && !loading && !error && results.length === 0 && (
+        <EmptyState message={`No results found for "${searchQuery}"`} />
+      )}
       {loading && <p className="status-message">Searching...</p>}
       {error && <p className="error-message">{error}</p>}
       {!loading && !error && results.length > 0 && (
@@ -73,7 +80,7 @@ const HomePage = () => {
 
             <span>{results.length} results</span>
           </div>
-          <ResultGrid results={results} />
+          <ResultGrid results={results} setSavedItems={setSavedItems} savedItems={savedItems}/>
         </>
       )}
     </main>

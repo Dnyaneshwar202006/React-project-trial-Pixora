@@ -670,3 +670,49 @@ main {
 
   font-size: 13px;
 }
+
+/* ================================
+   Empty States
+================================ */
+.empty-state {
+  width: 100%;
+
+  padding: 80px 20px;
+
+  text-align: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.empty-state-icon {
+  width: 56px;
+  height: 56px;
+
+  margin: 0 auto 18px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  font-size: 24px;
+}
+
+.empty-state h2 {
+  margin: 0 0 8px;
+
+  font-size: 20px;
+}
+
+.empty-state p {
+  margin: 0;
+
+  color: rgba(244, 244, 244, 0.45);
+
+  font-size: 14px;
+}
