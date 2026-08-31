@@ -5,7 +5,7 @@ import { fetchGIF, fetchVideos, fetchPhotos } from "../api/mediaApi";
 import ResultGrid from "../Components/ResultGrid";
 import EmptyState from "../Components/EmptyState";
 
-const HomePage = ({ savedItems, setSavedItems }) => {
+const HomePage = () => {
   const [query, setQuery] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [activeState, setActiveState] = useState("images");
@@ -80,7 +80,7 @@ const HomePage = ({ savedItems, setSavedItems }) => {
 
             <span>{results.length} results</span>
           </div>
-          <ResultGrid results={results} setSavedItems={setSavedItems} savedItems={savedItems}/>
+          <ResultGrid results={results}/>
         </>
       )}
     </main>
